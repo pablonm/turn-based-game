@@ -29,8 +29,10 @@ services:
       - '3001:3001'
     depends_on:
       - mongo
+      - redis
     environment:
       - NODE_ENV=development
+      - REDIS_URL=redis://games
 
   mongo:
     image: mongo
@@ -38,3 +40,9 @@ services:
     - "27017:27017"
     volumes:
     - ./db:/data/db
+
+  redis:
+    image: redis
+    container_name: games
+    ports:
+    - "6379:6379"

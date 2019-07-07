@@ -86,7 +86,7 @@ const Tilemap = () => {
               {line.map((tile, tileIndex) => (
                 <Tile
                   key={`tile${lineIndex}-${tileIndex}`}
-                  isEmpty={!tile}
+                  isEmpty={tile === 'empty'}
                   tileSize={tileSize}
                   x={lineIndex}
                   y={tileIndex}
