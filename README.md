@@ -6,4 +6,5 @@ Just a turn based game... idk.
 
 You need docker
 ```npm run dev-build```
+
 `npm run dev```
