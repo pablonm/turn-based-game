@@ -1,0 +1,22 @@
+{
+  "name": "characters",
+  "version": "0.0.0",
+  "description": "> TODO: description",
+  "author": "pablonm <pablomiceli24@gmail.com>",
+  "homepage": "",
+  "license": "ISC",
+  "main": "lib/index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "scripts": {
+    "test": "echo \"Error: run tests from root\" && exit 1",
+    "start": "tsc -w"
+  },
+  "devDependencies": {
+    "typescript": "^3.5.2"
+  }
+}

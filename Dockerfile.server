@@ -1,0 +1,21 @@
+# base image
+FROM node:latest
+
+# set working directory
+WORKDIR /usr/src/app
+
+# Install lerna
+RUN npm i lerna -g --loglevel notice
+
+# Copy the root package.json and install, then copy the relevant packages.
+COPY package.json .
+RUN npm install --loglevel notice
+
+COPY packages/characters ./packages/characters
+COPY packages/server ./packages/server
+
+# Lerna Bootstrap
+COPY lerna.json .
+RUN lerna bootstrap
+
+CMD [ "npm", "start" ]

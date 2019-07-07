@@ -1,0 +1,13 @@
+{
+  "name": "root",
+  "private": true,
+  "scripts": {
+    "dev-build": "docker-compose -f ./docker-compose.dev.yml build",
+    "dev-stop": "docker-compose -f ./docker-compose.dev.yml stop",
+    "dev": "docker-compose -f ./docker-compose.dev.yml up",
+    "start": "lerna run start --stream --parallel"
+  },
+  "devDependencies": {
+    "lerna": "^3.15.0"
+  }
+}

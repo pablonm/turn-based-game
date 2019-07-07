@@ -1,0 +1,26 @@
+.interactionPanel {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+
+  .playersTabs {
+    display: flex;
+
+    .tab {
+      background: lightgray;
+      padding: 10px;
+      cursor: pointer;
+
+      &.active {
+        background: lightskyblue;
+      }
+    }
+  }
+
+  .content {
+    flex: 1;
+    display: flex;
+    background: lightgray;
+  }
+}

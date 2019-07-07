@@ -1,0 +1,13 @@
+
+.layout {
+  .gameBoard {
+    background: lightcyan;
+    height: calc(100vh - 218px);
+    display: flex;
+    justify-content: center;
+  }
+  .gameUI {
+    background: lightcoral;
+    height: 218px;
+  }
+}

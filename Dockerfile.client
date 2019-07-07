@@ -1,0 +1,21 @@
+# base image
+FROM node:12.2.0-alpine
+
+# set working directory
+WORKDIR /usr/src/app
+
+# Install lerna
+RUN npm i lerna -g --loglevel notice
+
+# Copy the root package.json and install, then copy the relevant packages.
+COPY package.json .
+RUN npm install --loglevel notice
+
+COPY packages/characters ./packages/characters
+COPY packages/client ./packages/client
+
+# Lerna Bootstrap
+COPY lerna.json .
+RUN lerna bootstrap
+
+CMD [ "npm", "start" ]

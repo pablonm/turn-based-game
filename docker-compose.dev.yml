@@ -1,0 +1,40 @@
+version: '3.7'
+
+services:
+
+  client:
+    container_name: client
+    build:
+      context: .
+      dockerfile: Dockerfile.client
+    volumes:
+      - './packages/characters:/usr/src/app/packages/characters'
+      - './packages/client:/usr/src/app/packages/client'
+      - './packages/client/node_modules:/usr/src/app/packages/client/node_modules'
+    ports:
+      - '3000:3000'
+    environment:
+      - NODE_ENV=development
+
+  server:
+    container_name: server
+    build:
+      context: .
+      dockerfile: Dockerfile.server
+    volumes:
+      - './packages/characters:/usr/src/app/packages/characters'
+      - './packages/server:/usr/src/app/packages/server'
+      - './packages/server/node_modules:/usr/src/app/packages/server/node_modules'
+    ports:
+      - '3001:3001'
+    depends_on:
+      - mongo
+    environment:
+      - NODE_ENV=development
+
+  mongo:
+    image: mongo
+    ports:
+    - "27017:27017"
+    volumes:
+    - ./db:/data/db

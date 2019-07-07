@@ -1,0 +1,25 @@
+.tiles {
+  width: 100%;
+  position: relative;
+  z-index: 99;
+
+  .line {
+    display: flex;
+    justify-content: center;
+    margin-top: -1px;
+  }
+}
+
+.mapBackground {
+  width: 100%;
+  position: relative;
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x: center;
+  background-position-y: center;
+  
+  .container {
+    height: 100%;
+    position: relative;
+  }
+}
