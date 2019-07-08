@@ -15,6 +15,9 @@ function Game() {
     socket.on('gameData', data => {
       setGameData(data)
     })
+    socket.on('effectsApplied', data => {
+      console.log('Effects applied: ', data)
+    })
     return () => {
       socket.close()
     }

@@ -11,5 +11,6 @@ declare const characters: {
     };
     charactersInfo: Map<any, any>;
     skillPreviews: Map<any, any>;
+    skillEffects: Map<any, any>;
 };
 export default characters;

@@ -6,10 +6,12 @@ Object.defineProperty(exports, "__esModule", { value: true });
 const movement_1 = __importDefault(require("./movement"));
 const characters_1 = __importDefault(require("./characters"));
 const skillsPreviews_1 = __importDefault(require("./skillsPreviews"));
+const skillEffects_1 = __importDefault(require("./skillEffects"));
 const characters = {
     movement: movement_1.default,
     charactersInfo: characters_1.default,
-    skillPreviews: skillsPreviews_1.default
+    skillPreviews: skillsPreviews_1.default,
+    skillEffects: skillEffects_1.default
 };
 exports.default = characters;
 //# sourceMappingURL=index.js.map

@@ -1,7 +1,10 @@
 import SkillTypes from '../../enums/SkillTypes'
+import EffectTypes from '../../enums/EffectTypes'
 import getTileInFront from '../../utils/getTileInFront'
+import isSamePosition from '../../utils/isSamePosition'
 import Point from '../../interfaces/Point'
 import SkillInfo from '../../interfaces/SkillInfo'
+import ActionEffect, { DamageOnCharacter } from '../../interfaces/Effects'
 
 export const attack1Info : SkillInfo = {
   code: 'SAMPLE_ATTACK1',
@@ -13,8 +16,36 @@ export const attack1Info : SkillInfo = {
 }
 
 export const attack1Preview = (character, map) : Array<Point> => {
-  const effect = []
+  const preview = []
   const tileInFront = getTileInFront({ character, map })
-  if (tileInFront) effect.push(tileInFront)
-  return effect
+  if (tileInFront) preview.push(tileInFront)
+  return preview
+}
+
+export const attack1effect = (character, game) : ActionEffect => {
+  const { characters, map } = game
+  const effectArea = attack1Preview(character, map)
+  const effects : Array<DamageOnCharacter> = []
+  const newGame = {
+    ...game,
+    characters: characters.map(char => {
+      if (isSamePosition(char.position, effectArea[0])) {
+        effects.push({
+          type: EffectTypes.DAMAGE_ON_CHARACTER,
+          toCharacter: char.code,
+          amount: 10
+        })
+        return {
+          ...char,
+          health: char.health - 10
+        }
+      }
+      return char
+    })
+  }
+
+  return {
+    game: newGame,
+    effectsApplied: effects
+  }
 }

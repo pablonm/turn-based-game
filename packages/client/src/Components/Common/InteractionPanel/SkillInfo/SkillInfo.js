@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import characters from 'characters'
 import './SkillInfo.scss'
-import { move, left, right } from '../../../../Utils/ServerApi'
+import { move, left, right, attack1 } from '../../../../Utils/ServerApi'
 import { useSkillEffectArea } from '../../../../Contexts/SkillEffectAreaContext'
 import { useSelectedPlayerInfo } from '../../../../Contexts/SelectedPlayerInfoContext'
 import { useGameData } from '../../../../Contexts/GameDataContext'
@@ -14,6 +14,7 @@ const SkillInfo = () => {
   const moveHandler = () => move(selectedChar.code)
   const leftHandler = () => left(selectedChar.code)
   const rightHandler = () => right(selectedChar.code)
+  const attack1Handler = () => attack1(selectedChar.code)
 
   useEffect(() => {
     const previewFunction = characters.skillPreviews.get(selectedSkill.code)
@@ -33,7 +34,7 @@ const SkillInfo = () => {
           <button onClick={rightHandler}> Right </button>
         </div>
       )}
-      {selectedSkill.type === 'active' && <button> Do it </button>}
+      {selectedSkill.type === 'active' && <button onClick={attack1Handler}> Do it </button>}
     </div>
   )
 }
