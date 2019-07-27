@@ -1,0 +1,33 @@
+import Point from "../interfaces/Point";
+import Directions from "../enums/Directions";
+import ActionEffect from "../interfaces/Effects";
+declare abstract class Character {
+    abstract code: string;
+    abstract name: string;
+    abstract player: string;
+    abstract skills: Array<string>;
+    abstract position: Point;
+    abstract direction: Directions;
+    abstract maxHealth: number;
+    abstract currentHealth: number;
+    abstract maxEnergy: number;
+    abstract currentEnergy: number;
+    abstract image: string;
+    setCode(code: any): Character;
+    setName(name: any): Character;
+    setPlayer(player: any): Character;
+    setSkills(skills: any): Character;
+    setPosition(position: any): Character;
+    setDirection(direction: any): Character;
+    setMaxHealth(maxHealth: any): Character;
+    setCurrentHealth(currentHealth: any): Character;
+    setMaxEnergy(maxEnergy: any): Character;
+    setCurrentEnergy(currentEnergy: any): Character;
+    setImage(image: any): Character;
+    onCharacterMoved(game: any): ActionEffect;
+    receiveDamage(game: any, receiverCode: any, attackerCode: any): ActionEffect;
+    onCharacterReceivedDamage(game: any): ActionEffect;
+    turnTick(game: any): ActionEffect;
+    static fromJS(js: any): Character;
+}
+export default Character;

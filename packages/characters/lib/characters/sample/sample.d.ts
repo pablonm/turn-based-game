@@ -1,13 +1,19 @@
-declare const sample: {
+import Character from '../../classes/Character';
+import Directions from '../../enums/Directions';
+declare class Sample extends Character {
     code: string;
-    player: any;
-    position: {
-        x: any;
-        y: any;
-        direction: string;
-    };
     name: string;
-    health: number;
-    skills: import("../../interfaces/SkillInfo").default[];
-};
-export default sample;
+    player: any;
+    skills: string[];
+    position: {
+        x: number;
+        y: number;
+    };
+    direction: Directions;
+    maxHealth: number;
+    currentHealth: number;
+    maxEnergy: number;
+    currentEnergy: number;
+    image: string;
+}
+export default Sample;

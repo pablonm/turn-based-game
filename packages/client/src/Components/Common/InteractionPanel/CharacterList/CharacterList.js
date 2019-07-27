@@ -21,8 +21,8 @@ const CharacterList = () => {
           onClick={characterClickHandler(character.code)}
         >
           <img
-            src="http://newdesignfile.com/postpic/2014/09/cool-youtube-gaming-channel-icon_335416.png"
-            alt="char"
+            src={character.image}
+            alt={character.name}
           />
         </div>
       ))}

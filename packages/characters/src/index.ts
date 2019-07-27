@@ -1,13 +1,14 @@
-import movement from './movement'
 import charactersInfo from './characters'
-import skillPreviews from './skillsPreviews'
-import skillEffects from './skillEffects'
+import actions from './actions'
+import maps from './maps'
+import Game from './classes/Game'
 
+// TODO: EXPORTS INDIVIDUALES
 const characters = {
-  movement,
   charactersInfo,
-  skillPreviews,
-  skillEffects
+  actions,
+  maps,
+  Game
 }
 
 export default characters

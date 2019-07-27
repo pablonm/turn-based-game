@@ -1,5 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
+import characters from 'characters'
 import SkillInfo from '../SkillInfo/SkillInfo'
 import { useSelectedPlayerInfo } from '../../../../Contexts/SelectedPlayerInfoContext'
 import './CharacterInfo.scss'
@@ -20,15 +21,17 @@ const CharacterInfo = () => {
           <div>buffs: </div>
         </div>
         <div className="skills">
-          {selectedChar.skills.map(skill => (
-            <div
-              key={`skill_${skill.code}`}
-              onClick={skillClickHandler(skill.code)}
-              className={skillClasses(skill.code)}
-            >
-              <img src={skill.image} alt={skill.name} />
-            </div>
-          ))}
+          {selectedChar.skills
+            .map(skillCode => characters.actions.get(skillCode))
+            .map(skill => (
+              <div
+                key={`skill_${skill.code}`}
+                onClick={skillClickHandler(skill.code)}
+                className={skillClasses(skill.code)}
+              >
+                <img src={skill.image} alt={skill.name} />
+              </div>
+            ))}
         </div>
       </div>
       <SkillInfo />

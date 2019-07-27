@@ -1,6 +1,6 @@
-import sample from './characters/sample/sample'
+import Sample from './characters/sample/Sample'
 
 const characters = new Map()
-characters.set(sample.code, sample)
+characters.set("SAMPLE", Sample)
 
 export default characters
