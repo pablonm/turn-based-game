@@ -1,6 +1,6 @@
 import ActionTypes from '../../enums/ActionTypes'
 import EffectTypes from '../../enums/EffectTypes'
-import getTileInFront from '../../utils/getTileInFront'
+import nextPointInDirection from '../../utils/nextPointInDirection'
 import isTileInMap from '../../utils/isTileInMap'
 import Point from '../../interfaces/Point'
 import ActionEffect, { CharacterMoved } from '../../interfaces/Effects'
@@ -18,7 +18,7 @@ class Move extends Action {
 
   preview(character, map): Array<Point> {
     const effect = []
-    const tileInFront = getTileInFront({ character, map })
+    const tileInFront = nextPointInDirection(character.position, character.direction, map)
     if (tileInFront) {
       const newCharacter = {
         ...character,
@@ -31,9 +31,9 @@ class Move extends Action {
 
   execute(character: Character, game: Game): ActionEffect {
     const { map } = game
-    let newGame = game
+    let newGame: any = game
     const effects: Array<CharacterMoved> = []
-    const newPosition = getTileInFront({ character, map })
+    const newPosition = nextPointInDirection(character.position, character.direction, map)
     if (isTileInMap(map, newPosition)) {
       effects.push({
         type: EffectTypes.CHARACTER_MOVED,

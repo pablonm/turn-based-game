@@ -1,12 +1,13 @@
 const { charactersInfo, Game, maps } = require('characters').default
 const SampleChar = charactersInfo.get('SAMPLE')
+const Fennelore = charactersInfo.get('FENNELORE')
 
 const newGame = new Game('SAMPLE_GAME')
   .setMap(maps.get('SAMPLE_MAP'))
   .addPlayer({
     id: '1',
     name: '0x0bab10',
-    characters: ['SAMPLE']
+    characters: ['FENNELORE']
   })
   .addPlayer({
     id: '2',
@@ -14,7 +15,7 @@ const newGame = new Game('SAMPLE_GAME')
     characters: ['SAMPLE']
   })
   .addCharacter(
-    new SampleChar()
+    new Fennelore()
       .setPlayer('1')
       .setPosition({ x: 1, y: 1 })
   )

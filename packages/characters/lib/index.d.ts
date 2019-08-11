@@ -4,5 +4,6 @@ declare const characters: {
     actions: Map<any, any>;
     maps: Map<any, any>;
     Game: typeof Game;
+    deserializer: (js: any) => Game;
 };
 export default characters;

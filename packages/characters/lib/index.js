@@ -7,11 +7,13 @@ const characters_1 = __importDefault(require("./characters"));
 const actions_1 = __importDefault(require("./actions"));
 const maps_1 = __importDefault(require("./maps"));
 const Game_1 = __importDefault(require("./classes/Game"));
+const deserializer_1 = __importDefault(require("./utils/deserializer"));
 const characters = {
     charactersInfo: characters_1.default,
     actions: actions_1.default,
     maps: maps_1.default,
-    Game: Game_1.default
+    Game: Game_1.default,
+    deserializer: deserializer_1.default
 };
 exports.default = characters;
 //# sourceMappingURL=index.js.map

@@ -1,7 +1,8 @@
 import Point from './Point';
-import Game from './Game';
+import Game from '../classes/Game';
 import EffectTypes from '../enums/EffectTypes';
 import Directions from '../enums/Directions';
+import Status from '../enums/Status';
 export interface CharacterMoved {
     type: EffectTypes.CHARACTER_MOVED;
     character: string;
@@ -20,6 +21,12 @@ export interface DamageOnCharacter {
     toCharacter: string;
     amount: number;
 }
+export interface StatusOnCharacter {
+    type: EffectTypes.STATUS_ON_CHARACTER;
+    fromCharacter: string;
+    toCharacter: string;
+    status: Status;
+}
 export interface HealthChangeOnCharacter {
     type: EffectTypes.HEALTH_CHANGE_ON_CHARACTER;
     toCharacter: string;
@@ -27,5 +34,5 @@ export interface HealthChangeOnCharacter {
 }
 export default interface ActionEffect {
     game: Game;
-    effectsApplied: Array<CharacterMoved | CharacterRotated | DamageOnCharacter | HealthChangeOnCharacter>;
+    effectsApplied: Array<CharacterMoved | CharacterRotated | DamageOnCharacter | StatusOnCharacter | HealthChangeOnCharacter>;
 }

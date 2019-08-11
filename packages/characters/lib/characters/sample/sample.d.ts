@@ -15,5 +15,6 @@ declare class Sample extends Character {
     maxEnergy: number;
     currentEnergy: number;
     image: string;
+    status: any[];
 }
 export default Sample;

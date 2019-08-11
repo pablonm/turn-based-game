@@ -1,10 +1,12 @@
 import ActionTypes from '../../enums/ActionTypes'
-import getTileInFront from '../../utils/getTileInFront'
-import getCharacterInTile from '../../utils/getCharacterInTile'
+import nextPointInDirection from '../../utils/nextPointInDirection'
+import Map from '../../interfaces/Map';
 import Point from '../../interfaces/Point'
 import ActionEffect from '../../interfaces/Effects'
+import Game from '../../classes/Game';
 import Action from '../../classes/Action'
 import Character from '../../classes/Character';
+import applyDamageOnArea from '../../utils/applyDamageOnArea';
 
 class Attack1 extends Action {
   
@@ -14,25 +16,16 @@ class Attack1 extends Action {
   public description = 'This is a very powerful attack'
   public image = 'https://cdn3.iconfinder.com/data/icons/game-play/512/gaming-game-play-multimedia-console-18-512.png'
 
-  public preview(character, map) : Array<Point> {
+  public preview(character: Character, map: Map) : Array<Point> {
     const preview = []
-    const tileInFront = getTileInFront({ character, map })
+    const tileInFront = nextPointInDirection(character.position, character.direction, map)
     if (tileInFront) preview.push(tileInFront)
     return preview
   }
 
-  public execute(character, game) : ActionEffect {
+  public execute(character: Character, game: Game) : ActionEffect {
     const effectArea = this.preview(character, game.map)
-    const receiver = getCharacterInTile(game, effectArea[0]) as Character
-    if (receiver) {
-      return receiver.receiveDamage(game, receiver.code, character.code)
-    } else {
-      return {
-        game,
-        effectsApplied: []
-      }
-    }
-
+    return applyDamageOnArea(game, character, effectArea, 10)
   }
 }
 

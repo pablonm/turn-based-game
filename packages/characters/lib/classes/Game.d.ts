@@ -10,8 +10,9 @@ declare class Game {
     constructor(id: any);
     setPlayersTurn(playersTurn: any): Game;
     setMap(map: any): Game;
+    setPlayers(players: any): Game;
+    setCharacters(characters: any): Game;
     addPlayer(player: any): Game;
     addCharacter(character: any): Game;
-    static fromJS(js: any): Game;
 }
 export default Game;

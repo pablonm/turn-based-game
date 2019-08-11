@@ -5,6 +5,7 @@ var EffectTypes;
     EffectTypes["CHARACTER_MOVED"] = "CHARACTER_MOVED";
     EffectTypes["CHARACTER_ROTATED"] = "CHARACTER_ROTATED";
     EffectTypes["DAMAGE_ON_CHARACTER"] = "DAMAGE_ON_CHARACTER";
+    EffectTypes["STATUS_ON_CHARACTER"] = "STATUS_ON_CHARACTER";
     EffectTypes["HEALTH_CHANGE_ON_CHARACTER"] = "HEALTH_CHANGE_ON_CHARACTER";
 })(EffectTypes || (EffectTypes = {}));
 exports.default = EffectTypes;

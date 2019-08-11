@@ -1,6 +1,7 @@
 import Point from "../interfaces/Point";
 import Directions from "../enums/Directions";
 import ActionEffect from "../interfaces/Effects";
+import Status from "../enums/Status";
 declare abstract class Character {
     abstract code: string;
     abstract name: string;
@@ -13,6 +14,7 @@ declare abstract class Character {
     abstract maxEnergy: number;
     abstract currentEnergy: number;
     abstract image: string;
+    abstract status: Array<Status>;
     setCode(code: any): Character;
     setName(name: any): Character;
     setPlayer(player: any): Character;
@@ -24,10 +26,13 @@ declare abstract class Character {
     setMaxEnergy(maxEnergy: any): Character;
     setCurrentEnergy(currentEnergy: any): Character;
     setImage(image: any): Character;
-    onCharacterMoved(game: any): ActionEffect;
-    receiveDamage(game: any, receiverCode: any, attackerCode: any): ActionEffect;
+    setStatus(status: any): Character;
+    addStatus(status: Status): Character;
+    removeStatus(status: Status): Character;
+    receiveDamage(game: any, receiverCode: any, attackerCode: any, amount: any): ActionEffect;
+    applyStatus(game: any, receiverCode: any, attackerCode: any, status: any): ActionEffect;
     onCharacterReceivedDamage(game: any): ActionEffect;
     turnTick(game: any): ActionEffect;
-    static fromJS(js: any): Character;
+    onCharacterMoved(game: any): ActionEffect;
 }
 export default Character;

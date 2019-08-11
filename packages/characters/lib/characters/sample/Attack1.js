@@ -4,9 +4,9 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 };
 Object.defineProperty(exports, "__esModule", { value: true });
 const ActionTypes_1 = __importDefault(require("../../enums/ActionTypes"));
-const getTileInFront_1 = __importDefault(require("../../utils/getTileInFront"));
-const getCharacterInTile_1 = __importDefault(require("../../utils/getCharacterInTile"));
+const nextPointInDirection_1 = __importDefault(require("../../utils/nextPointInDirection"));
 const Action_1 = __importDefault(require("../../classes/Action"));
+const applyDamageOnArea_1 = __importDefault(require("../../utils/applyDamageOnArea"));
 class Attack1 extends Action_1.default {
     constructor() {
         super(...arguments);
@@ -18,23 +18,14 @@ class Attack1 extends Action_1.default {
     }
     preview(character, map) {
         const preview = [];
-        const tileInFront = getTileInFront_1.default({ character, map });
+        const tileInFront = nextPointInDirection_1.default(character.position, character.direction, map);
         if (tileInFront)
             preview.push(tileInFront);
         return preview;
     }
     execute(character, game) {
         const effectArea = this.preview(character, game.map);
-        const receiver = getCharacterInTile_1.default(game, effectArea[0]);
-        if (receiver) {
-            return receiver.receiveDamage(game, receiver.code, character.code);
-        }
-        else {
-            return {
-                game,
-                effectsApplied: []
-            };
-        }
+        return applyDamageOnArea_1.default(game, character, effectArea, 10);
     }
 }
 exports.default = new Attack1();

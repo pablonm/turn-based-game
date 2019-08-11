@@ -22,6 +22,7 @@ class Sample extends Character_1.default {
         this.maxEnergy = 5;
         this.currentEnergy = 5;
         this.image = 'http://newdesignfile.com/postpic/2014/09/cool-youtube-gaming-channel-icon_335416.png';
+        this.status = [];
     }
 }
 exports.default = Sample;

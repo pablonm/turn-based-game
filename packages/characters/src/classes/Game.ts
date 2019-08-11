@@ -13,15 +13,14 @@ class Game {
     this.id = id
   }
 
-  public setPlayersTurn(playersTurn): Game {
-    this.playersTurn = playersTurn
-    return this
-  }
+  /**
+   * Setters.
+   */
 
-  public setMap(map): Game {
-    this.map = map
-    return this
-  }
+  public setPlayersTurn(playersTurn): Game { this.playersTurn = playersTurn; return this }
+  public setMap(map): Game { this.map = map; return this }
+  public setPlayers(players): Game { this.players = [...players]; return this }
+  public setCharacters(characters): Game { this.characters = [...characters]; return this }
 
   public addPlayer(player): Game {
     this.players.push(player)
@@ -33,13 +32,6 @@ class Game {
     return this
   }
 
-  public static fromJS(js): Game {
-    let game = new Game(js.id)
-    game.setMap(js.map).setPlayersTurn(js.playersTurn)
-    js.players.forEach(player => game.addPlayer(player))
-    js.characters.forEach(character => game.addCharacter(Character.fromJS(character)))
-    return game
-  }
 }
 
 export default Game

@@ -5,7 +5,7 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const ActionTypes_1 = __importDefault(require("../../enums/ActionTypes"));
 const EffectTypes_1 = __importDefault(require("../../enums/EffectTypes"));
-const getTileInFront_1 = __importDefault(require("../../utils/getTileInFront"));
+const nextPointInDirection_1 = __importDefault(require("../../utils/nextPointInDirection"));
 const isTileInMap_1 = __importDefault(require("../../utils/isTileInMap"));
 const Action_1 = __importDefault(require("../../classes/Action"));
 class Move extends Action_1.default {
@@ -19,7 +19,7 @@ class Move extends Action_1.default {
     }
     preview(character, map) {
         const effect = [];
-        const tileInFront = getTileInFront_1.default({ character, map });
+        const tileInFront = nextPointInDirection_1.default(character.position, character.direction, map);
         if (tileInFront) {
             const newCharacter = Object.assign({}, character, { position: tileInFront });
             effect.push({ x: newCharacter.position.x, y: newCharacter.position.y });
@@ -30,7 +30,7 @@ class Move extends Action_1.default {
         const { map } = game;
         let newGame = game;
         const effects = [];
-        const newPosition = getTileInFront_1.default({ character, map });
+        const newPosition = nextPointInDirection_1.default(character.position, character.direction, map);
         if (isTileInMap_1.default(map, newPosition)) {
             effects.push({
                 type: EffectTypes_1.default.CHARACTER_MOVED,

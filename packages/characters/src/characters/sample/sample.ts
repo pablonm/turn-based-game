@@ -16,7 +16,8 @@ class Sample extends Character {
   public maxEnergy = 5
   public currentEnergy = 5
   public image = 'http://newdesignfile.com/postpic/2014/09/cool-youtube-gaming-channel-icon_335416.png'
-  
+  public status = []
+
 }
 
 export default Sample

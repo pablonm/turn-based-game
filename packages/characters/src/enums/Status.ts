@@ -1,7 +1,12 @@
 enum Status {
-  STUN,
-  ROOT,
-  CONFUSED
+  ROOTED,
+  SILENCED,
+  STUNNED,
+  SLOWED,
+  INVULNERABLE,
+  HURT,
+  TIRED,
+  VULNERABLE
 }
 
 export default Status
