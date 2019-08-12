@@ -9,5 +9,4 @@ declare class Aura extends Passive {
     preview(character: any, map: any): Array<Point>;
     execute(character: any, game: any): ActionEffect;
 }
-declare const _default: Aura;
-export default _default;
+export default Aura;

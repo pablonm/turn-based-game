@@ -11,5 +11,4 @@ declare class TurnRight extends Action {
     preview(character: any, map: any): Array<Point>;
     execute(character: any, game: any): ActionEffect;
 }
-declare const _default: TurnRight;
-export default _default;
+export default TurnRight;

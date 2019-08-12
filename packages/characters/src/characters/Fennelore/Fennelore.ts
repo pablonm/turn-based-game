@@ -1,8 +1,10 @@
 import Character from '../../classes/Character'
 import Directions from '../../enums/Directions';
+import Move from '../common/Move'
+import TurnLeft from '../common/TurnLeft'
+import TurnRight from '../common/TurnRight'
 import SpiritArrow from './SpiritArrow'
 import MasterAgility from './MasterAgility'
-import Move from '../common/Move'
 import Status from '../../enums/Status';
 import ActionEffect from '../../interfaces/Effects';
 
@@ -10,7 +12,13 @@ class Fennerlore extends Character {
   public code = 'FENNELORE'
   public name = 'Fennelore'
   public player = null
-  public skills = [ Move.code, MasterAgility.code, SpiritArrow.code ]
+  public skills = [ 
+    new Move(),
+    new TurnLeft(),
+    new TurnRight(),
+    new MasterAgility(),
+    new SpiritArrow(),
+  ]
   public position = { 
     x: 1,
     y: 1

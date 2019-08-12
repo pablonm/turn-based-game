@@ -29,4 +29,4 @@ class Attack1 extends Action {
   }
 }
 
-export default new Attack1()
+export default Attack1

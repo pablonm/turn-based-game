@@ -1,6 +1,5 @@
 import React from 'react'
 import classNames from 'classnames'
-import characters from 'characters'
 import SkillInfo from '../SkillInfo/SkillInfo'
 import { useSelectedPlayerInfo } from '../../../../Contexts/SelectedPlayerInfoContext'
 import './CharacterInfo.scss'
@@ -22,7 +21,7 @@ const CharacterInfo = () => {
         </div>
         <div className="skills">
           {selectedChar.skills
-            .map(skillCode => characters.actions.get(skillCode))
+            .filter(skill => skill.type !== 'movement_additional')
             .map(skill => (
               <div
                 key={`skill_${skill.code}`}

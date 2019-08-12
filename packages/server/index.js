@@ -32,7 +32,8 @@ app.post('/action', async (req, res) => {
   const game = await getActiveGame()
   const { characters } = game
   const character = characters.find(char => char.code === characterCode)
-  const result = actions.get(actionCode).execute(character, game)
+  const skill = character.skills.find(skill => skill.code === actionCode)
+  const result = skill.execute(character, game)
   setActiveGame(result.game)
   io.to('game1').emit('gameData', result.game)
   io.to('game1').emit('effectsApplied', result.effectsApplied)

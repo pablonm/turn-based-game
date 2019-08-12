@@ -9,5 +9,4 @@ declare class MasterAgility extends Passive {
     preview(character: any, map: any): Array<Point>;
     execute(character: any, game: any): ActionEffect;
 }
-declare const _default: MasterAgility;
-export default _default;
+export default MasterAgility;

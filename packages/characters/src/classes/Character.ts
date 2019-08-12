@@ -3,12 +3,13 @@ import EffectTypes from "../enums/EffectTypes";
 import Directions from "../enums/Directions";
 import ActionEffect, { DamageOnCharacter, StatusOnCharacter } from "../interfaces/Effects";
 import Status from "../enums/Status";
+import Action from "./Action";
 
 abstract class Character {
   public abstract code: string
   public abstract name: string
   public abstract player: string
-  public abstract skills: Array<string>
+  public abstract skills: Array<Action>
   public abstract position: Point
   public abstract direction: Directions
   public abstract maxHealth: number

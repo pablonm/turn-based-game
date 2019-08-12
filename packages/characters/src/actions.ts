@@ -8,12 +8,12 @@ import MasterAgility from './characters/Fennelore/MasterAgility'
 import SpiritArrow from './characters/Fennelore/SpiritArrow'
 
 const actions = new Map()
-actions.set(Move.code, Move)
-actions.set(TurnLeft.code, TurnLeft)
-actions.set(TurnRight.code, TurnRight)
-actions.set(Aura.code, Aura)
-actions.set(Attack1.code, Attack1)
-actions.set(SpiritArrow.code, SpiritArrow)
-actions.set(MasterAgility.code, MasterAgility)
+actions.set('MOVE', Move)
+actions.set('TURN_LEFT', TurnLeft)
+actions.set('TURN_RIGHT', TurnRight)
+actions.set('SAMPLE_AURA', Aura)
+actions.set('SAMPLE_ATTACK1', Attack1)
+actions.set('FENNELORE_SPIRIT_ARROW', SpiritArrow)
+actions.set('FENNELORE_MASTER_AGILITY', MasterAgility)
 
 export default actions

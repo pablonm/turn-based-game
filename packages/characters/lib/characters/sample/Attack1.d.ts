@@ -14,5 +14,4 @@ declare class Attack1 extends Action {
     preview(character: Character, map: Map): Array<Point>;
     execute(character: Character, game: Game): ActionEffect;
 }
-declare const _default: Attack1;
-export default _default;
+export default Attack1;

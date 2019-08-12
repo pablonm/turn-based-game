@@ -18,4 +18,4 @@ class MasterAgility extends Passive {
   }
 }
 
-export default new MasterAgility()
+export default MasterAgility

@@ -5,9 +5,11 @@ var __importDefault = (this && this.__importDefault) || function (mod) {
 Object.defineProperty(exports, "__esModule", { value: true });
 const Character_1 = __importDefault(require("../../classes/Character"));
 const Directions_1 = __importDefault(require("../../enums/Directions"));
+const Move_1 = __importDefault(require("../common/Move"));
+const TurnLeft_1 = __importDefault(require("../common/TurnLeft"));
+const TurnRight_1 = __importDefault(require("../common/TurnRight"));
 const SpiritArrow_1 = __importDefault(require("./SpiritArrow"));
 const MasterAgility_1 = __importDefault(require("./MasterAgility"));
-const Move_1 = __importDefault(require("../common/Move"));
 const Status_1 = __importDefault(require("../../enums/Status"));
 class Fennerlore extends Character_1.default {
     constructor() {
@@ -15,7 +17,13 @@ class Fennerlore extends Character_1.default {
         this.code = 'FENNELORE';
         this.name = 'Fennelore';
         this.player = null;
-        this.skills = [Move_1.default.code, MasterAgility_1.default.code, SpiritArrow_1.default.code];
+        this.skills = [
+            new Move_1.default(),
+            new TurnLeft_1.default(),
+            new TurnRight_1.default(),
+            new MasterAgility_1.default(),
+            new SpiritArrow_1.default(),
+        ];
         this.position = {
             x: 1,
             y: 1

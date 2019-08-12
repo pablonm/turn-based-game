@@ -50,5 +50,5 @@ class Move extends Action_1.default {
         };
     }
 }
-exports.default = new Move();
+exports.default = Move;
 //# sourceMappingURL=Move.js.map

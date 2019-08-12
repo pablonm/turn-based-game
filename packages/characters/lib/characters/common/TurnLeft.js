@@ -12,13 +12,11 @@ class TurnLeft extends Action_1.default {
         super(...arguments);
         this.code = 'TURN_LEFT';
         this.name = 'Turn left';
-        this.type = ActionTypes_1.default.MOVEMENT;
+        this.type = ActionTypes_1.default.MOVEMENT_ADDITIONAL;
         this.description = 'Move to the left';
         this.image = 'https://cdn3.iconfinder.com/data/icons/game-play/512/gaming-game-play-multimedia-console-18-512.png';
     }
-    preview(character, map) {
-        return [];
-    }
+    preview(character, map) { return []; }
     execute(character, game) {
         const dirs = [Directions_1.default.NORTH, Directions_1.default.EAST, Directions_1.default.SOUTH, Directions_1.default.WEST];
         const newDirectionIndex = dirs.indexOf(character.direction) - 1;
@@ -41,5 +39,5 @@ class TurnLeft extends Action_1.default {
         };
     }
 }
-exports.default = new TurnLeft();
+exports.default = TurnLeft;
 //# sourceMappingURL=TurnLeft.js.map

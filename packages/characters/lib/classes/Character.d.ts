@@ -2,11 +2,12 @@ import Point from "../interfaces/Point";
 import Directions from "../enums/Directions";
 import ActionEffect from "../interfaces/Effects";
 import Status from "../enums/Status";
+import Action from "./Action";
 declare abstract class Character {
     abstract code: string;
     abstract name: string;
     abstract player: string;
-    abstract skills: Array<string>;
+    abstract skills: Array<Action>;
     abstract position: Point;
     abstract direction: Directions;
     abstract maxHealth: number;

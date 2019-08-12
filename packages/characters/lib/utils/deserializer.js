@@ -11,10 +11,10 @@ const actionFromJS = (js) => {
     const char = new ActionClass();
     return char
         .setCode(js.code)
-        .setName(js.code)
-        .setType(js.code)
-        .setDescription(js.code)
-        .setImage(js.code);
+        .setName(js.name)
+        .setType(js.type)
+        .setDescription(js.description)
+        .setImage(js.image);
 };
 const characterFromJS = (js) => {
     const CharClass = characters_1.default.get(js.code);
@@ -23,7 +23,6 @@ const characterFromJS = (js) => {
         .setCode(js.code)
         .setName(js.name)
         .setPlayer(js.player)
-        .setSkills(js.skills)
         .setPosition(js.position)
         .setDirection(js.direction)
         .setMaxHealth(js.maxHealth)
@@ -31,7 +30,8 @@ const characterFromJS = (js) => {
         .setMaxEnergy(js.maxEnergy)
         .setCurrentEnergy(js.currentEnergy)
         .setImage(js.image)
-        .setStatus(js.status);
+        .setStatus(js.status)
+        .setSkills(js.skills.map(skill => actionFromJS(skill)));
 };
 const gameFromJS = (js) => {
     let game = new Game_1.default(js.id);

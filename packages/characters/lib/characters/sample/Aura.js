@@ -12,15 +12,8 @@ class Aura extends Passive_1.default {
         this.description = 'This is the passive and does very interesting stuff';
         this.image = 'https://cdn3.iconfinder.com/data/icons/game-play/512/gaming-game-play-multimedia-console-18-512.png';
     }
-    preview(character, map) {
-        return [];
-    }
-    execute(character, game) {
-        return {
-            game,
-            effectsApplied: []
-        };
-    }
+    preview(character, map) { return []; }
+    execute(character, game) { return { game, effectsApplied: [] }; }
 }
-exports.default = new Aura();
+exports.default = Aura;
 //# sourceMappingURL=Aura.js.map

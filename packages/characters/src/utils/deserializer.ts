@@ -9,10 +9,10 @@ const actionFromJS = (js): Action => {
   const char = new ActionClass()
   return char
     .setCode(js.code)
-    .setName(js.code)
-    .setType(js.code)
-    .setDescription(js.code)
-    .setImage(js.code)
+    .setName(js.name)
+    .setType(js.type)
+    .setDescription(js.description)
+    .setImage(js.image)
 }
 
 const characterFromJS = (js): Character => {
@@ -22,7 +22,6 @@ const characterFromJS = (js): Character => {
       .setCode(js.code)
       .setName(js.name)
       .setPlayer(js.player)
-      .setSkills(js.skills)
       .setPosition(js.position)
       .setDirection(js.direction)
       .setMaxHealth(js.maxHealth)
@@ -31,6 +30,7 @@ const characterFromJS = (js): Character => {
       .setCurrentEnergy(js.currentEnergy)
       .setImage(js.image)
       .setStatus(js.status)
+      .setSkills(js.skills.map(skill => actionFromJS(skill)))
 }
 
 const gameFromJS = (js): Game => {

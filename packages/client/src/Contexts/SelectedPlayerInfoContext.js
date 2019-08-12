@@ -1,5 +1,4 @@
 import React, { useState, useContext, createContext } from 'react'
-import charactersLogic from 'characters'
 const SelectedPlayerInfoContext = createContext()
 
 function SelectedPlayerInfoProvider({ children, gameData: { players, characters } }) {
@@ -8,12 +7,12 @@ function SelectedPlayerInfoProvider({ children, gameData: { players, characters 
     players.reduce((obj, player) => ({ ...obj, [player.id]: player.characters[0] }), {})
   )
   const [selectedSkillsCodes, setSelectedSkillsCodes] = useState(
-    characters.reduce((obj, char) => ({ ...obj, [char.player + char.code]: char.skills[0] }), {})
+    characters.reduce((obj, char) => ({ ...obj, [char.player + char.code]: char.skills[0].code }), {})
   )
 
   const selectedPlayer = players.find(player => player.id === selectedPlayerId)
   const selectedChar = characters.find(char => char.code === selectedCharsCodes[selectedPlayerId])
-  const selectedSkill = charactersLogic.actions.get(selectedSkillsCodes[selectedPlayerId + selectedChar.code])
+  const selectedSkill = selectedChar.skills.find(skill => skill.code === selectedSkillsCodes[selectedPlayerId + selectedChar.code])
 
   const setSelectedPlayer = playerId => setSelectedPlayerId(playerId)
   const setSelectedChar = charId =>

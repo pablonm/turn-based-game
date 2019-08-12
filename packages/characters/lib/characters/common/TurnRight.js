@@ -12,13 +12,11 @@ class TurnRight extends Action_1.default {
         super(...arguments);
         this.code = 'TURN_RIGHT';
         this.name = 'Turn right';
-        this.type = ActionTypes_1.default.MOVEMENT;
+        this.type = ActionTypes_1.default.MOVEMENT_ADDITIONAL;
         this.description = 'Move to the right';
         this.image = 'https://cdn3.iconfinder.com/data/icons/game-play/512/gaming-game-play-multimedia-console-18-512.png';
     }
-    preview(character, map) {
-        return [];
-    }
+    preview(character, map) { return []; }
     execute(character, game) {
         const dirs = [Directions_1.default.NORTH, Directions_1.default.EAST, Directions_1.default.SOUTH, Directions_1.default.WEST];
         const newDirectionIndex = dirs.indexOf(character.direction) + 1;
@@ -41,5 +39,5 @@ class TurnRight extends Action_1.default {
         };
     }
 }
-exports.default = new TurnRight();
+exports.default = TurnRight;
 //# sourceMappingURL=TurnRight.js.map

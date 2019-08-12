@@ -19,5 +19,5 @@ class MasterAgility extends Passive_1.default {
         return { game, effectsApplied: [] };
     }
 }
-exports.default = new MasterAgility();
+exports.default = MasterAgility;
 //# sourceMappingURL=MasterAgility.js.map

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import io from 'socket.io-client'
+import characters from 'characters'
 import Tilemap from '../Common/Tilemap/Tilemap'
 import InteractionPanel from '../Common/InteractionPanel/InteractionPanel'
 import { SkillEffectAreaProvider } from '../../Contexts/SkillEffectAreaContext'
@@ -13,7 +14,7 @@ function Game() {
   useEffect(() => {
     const socket = io('http://localhost:3001')
     socket.on('gameData', data => {
-      setGameData(data)
+      setGameData(characters.deserializer(data))
     })
     socket.on('effectsApplied', data => {
       console.log('Effects applied: ', data)

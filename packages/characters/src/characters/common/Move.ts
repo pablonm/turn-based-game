@@ -58,4 +58,4 @@ class Move extends Action {
   }
 }
 
-export default new Move()
+export default Move

@@ -13,5 +13,4 @@ declare class Move extends Action {
     preview(character: any, map: any): Array<Point>;
     execute(character: Character, game: Game): ActionEffect;
 }
-declare const _default: Move;
-export default _default;
+export default Move;

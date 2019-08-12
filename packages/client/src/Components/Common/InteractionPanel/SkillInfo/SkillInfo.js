@@ -1,5 +1,4 @@
 import React, { useEffect } from 'react'
-import characters from 'characters'
 import './SkillInfo.scss'
 import { action } from '../../../../Utils/ServerApi'
 import { useSkillEffectArea } from '../../../../Contexts/SkillEffectAreaContext'
@@ -14,11 +13,11 @@ const SkillInfo = () => {
   const actionHandler = skillCode => () => action(selectedChar.code, skillCode)
 
   useEffect(() => {
-    const previewFunction = characters.actions.get(selectedSkill.code).preview
+    const previewFunction = selectedSkill.preview
     if (previewFunction) {
       setEffectTiles(previewFunction(selectedChar, map))
     }
-  }, [setEffectTiles, selectedChar, map, selectedSkill.code])
+  }, [setEffectTiles, selectedChar, map, selectedSkill.code, selectedSkill.preview])
 
   return (
     <div className="skillInfo">

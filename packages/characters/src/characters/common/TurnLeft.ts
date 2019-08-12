@@ -10,13 +10,11 @@ class TurnLeft extends Action {
 
   code = 'TURN_LEFT'
   name = 'Turn left'
-  type = ActionTypes.MOVEMENT
+  type = ActionTypes.MOVEMENT_ADDITIONAL
   description = 'Move to the left'
   image = 'https://cdn3.iconfinder.com/data/icons/game-play/512/gaming-game-play-multimedia-console-18-512.png'
 
-  preview(character, map): Array<Point> {
-    return []
-  }
+  preview(character, map): Array<Point> { return [] }
 
   execute(character, game): ActionEffect {
     const dirs = [Directions.NORTH, Directions.EAST, Directions.SOUTH, Directions.WEST]
@@ -45,4 +43,4 @@ class TurnLeft extends Action {
   }
 }
 
-export default new TurnLeft()
+export default TurnLeft

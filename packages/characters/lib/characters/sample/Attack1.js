@@ -28,5 +28,5 @@ class Attack1 extends Action_1.default {
         return applyDamageOnArea_1.default(game, character, effectArea, 10);
     }
 }
-exports.default = new Attack1();
+exports.default = Attack1;
 //# sourceMappingURL=Attack1.js.map
